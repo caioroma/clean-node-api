@@ -20,9 +20,9 @@ const makeSut = () => {
 }
 
 describe('Login Router', () => {
+
     test('Should return 400 if no email is provided', () => {
         const { sut } = makeSut();
-
         const httpRequest = {
             body: {
                 password: 'any_password'
@@ -36,7 +36,6 @@ describe('Login Router', () => {
 
     test('Should return 400 if no password is provided', () => {
         const { sut } = makeSut();
-
         const httpRequest = {
             body: {
                 email: 'any_email'
@@ -63,7 +62,6 @@ describe('Login Router', () => {
 
     test('Should call AuthCase with correct params', () => {
         const { sut, authUseCaseSpy } = makeSut();
-
         const httpRequest = {
             body: {
                 email: 'any_email@mail.com',
@@ -78,7 +76,6 @@ describe('Login Router', () => {
 
     test('Should return 401 when invalid credentials are provided', () => {
         const { sut } = makeSut();
-
         const httpRequest = {
             body: {
                 email: 'invalid_email@mail.com',
@@ -93,7 +90,6 @@ describe('Login Router', () => {
 
     test('Should return 500 if no AuthUseCase is provided', () => {
         const sut = new LoginRouter();
-
         const httpRequest = {
             body: {
                 email: 'any_email@mail.com',
